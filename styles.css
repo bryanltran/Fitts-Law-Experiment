@@ -1,0 +1,97 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #startup-screen,
+  #experiment-screen,
+  #average-speed-screen,
+  #completion-screen {
+    text-align: center;
+    padding: 20px; 
+  }
+  
+  #square-container {
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+  }
+  
+  .square {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none; 
+    position: absolute;
+  }
+  
+  #left-square {
+    left: calc(50% - 200px); 
+  }
+  
+  #right-square {
+    left: calc(50% + 100px); 
+  }
+  
+  .clicked {
+    background-color: #007bff; 
+  }
+  
+  #trial-info {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    user-select: none; 
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+
+  #startup-screen {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #average-speed {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
