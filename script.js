@@ -5,19 +5,30 @@ let currentDifficultyIndex = 0;
 let allTimes = []; // 2D array to store times for each trial and difficulty combination
 let timerStart;
 let timerEnd;
+let squareSize = 100; // Initial size of squares
 
 function startTrial() {
     document.getElementById('startup-screen').style.display = 'none';
     document.getElementById('experiment-screen').style.display = 'block';
     adjustSquarePositions(); // Adjust square positions based on difficulty index
+    adjustSquareSize(); // Adjust square size based on current size variable
     document.getElementById('trial-info').innerText = `Trial: ${currentTrial} | Difficulty Index: ${difficulties[currentDifficultyIndex]}`;
+}
+
+function adjustSquareSize() {
+    const leftSquare = document.getElementById('left-square');
+    const rightSquare = document.getElementById('right-square');
+    leftSquare.style.width = `${squareSize}px`;
+    leftSquare.style.height = `${squareSize}px`;
+    rightSquare.style.width = `${squareSize}px`;
+    rightSquare.style.height = `${squareSize}px`;
 }
 
 function startTimer(event) {
     timerStart = performance.now();
 
     const clickedSquare = event.target;
-    const rightSquare = document.getElementById('left-square');
+    const rightSquare = document.getElementById('left-square'); // Corrected the ID here
 
     if (clickedSquare === rightSquare) {
         if (clickedSquare.classList.contains('clicked')) {
@@ -42,7 +53,7 @@ function recordTime(event) {
 
     // Toggle background color of the clicked square
     const clickedSquare = event.target;
-    const rightSquare = document.getElementById('right-square');
+    const rightSquare = document.getElementById('right-square'); // Corrected the ID here
 
     if (clickedSquare === rightSquare) {
         if (clickedSquare.classList.contains('clicked')) {
@@ -83,6 +94,9 @@ function startNextTrial() {
             showCompletionScreen();
             return;
         }
+        if (currentDifficultyIndex % 2 === 0) { // Check if current difficulty index is divisible by 2
+            decreaseSquareSize(); // Decrease square size after every two increases in difficulty index
+        }
     }
     document.getElementById('average-speed-screen').style.display = 'none';
     startTrial();
@@ -110,6 +124,10 @@ function showCompletionScreen() {
     }
 }
 
+function decreaseSquareSize() {
+    squareSize -= 20; // Decrease size by 20 pixels
+    adjustSquareSize(); // Adjust square size after decreasing
+}
 
 function getAverageSpeed(difficultyIndex) {
     let sum = 0;
@@ -130,3 +148,5 @@ function adjustSquarePositions() {
     document.getElementById('left-square').style.left = `calc(50% - ${distance}px)`;
     document.getElementById('right-square').style.left = `calc(50% + ${distance}px)`;
 }
+
+

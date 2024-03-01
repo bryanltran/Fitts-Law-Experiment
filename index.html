@@ -10,13 +10,13 @@
 <div id="trial-info"></div>    
   <div id="startup-screen">
     <h2>Welcome to the Fitts' Law Experiment</h2>
-    <p>In this experiment, you will measure how fast you can point between two squares shown on the screen for different Index of Difficulty (ID). For each trial, click inside the leftmost square. Then, click back and forth between the two squares as fast as you can for 10 times. After completing 10 clicks, the average time it took will be displayed. The Index of Difficulty (ID) will increase from 2 to 6, representing increasing distance between the squares. Each ID will have 3 trials before advancing to the next ID. Once you've completed the third trial of ID 6, the experiment will be completed.</p>
+    <p>In this experiment, you will measure how fast you can point between two squares shown on the screen for different Index of Difficulty (ID). For each trial, click inside the leftmost square. Then, click back and forth between the two squares as fast as you can for 10 times. After completing 10 clicks, the average time it took will be displayed. The Index of Difficulty (ID) will increase from 2 to 6, representing increasing difficulty. Every 1 ID increase results in distance between the squares increasing, and every 2 ID increase results in a decrease in square size. Each ID will have 3 trials before advancing to the next ID. Once you've completed the third trial of ID 6, the experiment will be completed.</p>
     <button onclick="startTrial()">Start Experiment</button>
   </div>
   <div id="experiment-screen" style="display:none;">
     <div id="square-container">
-      <div id="left-square" class="square" onclick="startTimer(event)">1</div>
-      <div id="right-square" class="square" onclick="recordTime(event)">2</div>
+      <div id="left-square" class="square" onclick="startTimer(event)"></div>
+      <div id="right-square" class="square" onclick="recordTime(event)"></div>
     </div>
   </div>
   <div id="average-speed-screen" style="display:none;">
